@@ -3,4 +3,8 @@
     <string name="searchText_hint">Автор и название книги</string>
     <string name="btn_search">Найти</string>
     <string name="comments">Комментарии</string>
+    <string name="labirint">Лабиринт</string>
+    <string name="book24">Book24</string>
+    <string name="myShop">MyShop</string>
+    <string name="toShop">В магазин</string>
 </resources>

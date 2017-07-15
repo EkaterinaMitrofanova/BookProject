@@ -2,24 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
+    android:layout_marginBottom="2dp"
+    android:paddingLeft="3dp"
+    android:paddingRight="3dp"
+    android:background="@color/colorBackground"
     >
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/commentTitle"
         android:textStyle="bold"
-        android:text="Заголовок комментария"/>
+        />
 
     <TextView
-        android:layout_width="320dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxHeight="250dp"
         android:id="@+id/commentText"
-        android:layout_marginTop="8dp"
-        android:layout_gravity="end"
-        android:foregroundGravity="right"
-        android:text="Бла бла блаблабла блаблаб блаблабала "/>
+        android:layout_marginTop="6dp"
+        android:paddingBottom="2dp"
+        android:foregroundGravity="right" />
 
 </LinearLayout>

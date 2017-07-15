@@ -4,13 +4,25 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="20dp">
+    android:paddingLeft="2dp"
+    android:paddingRight="2dp"
+    android:background="@drawable/fragment_layout"
+    android:layout_gravity="center">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/comments"
+        android:padding="5dp"
+        android:textSize="17sp"
+        android:gravity="center_horizontal"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/commentsRv"
         android:orientation="vertical"
+        android:background="@color/colorPrimary"
         tools:listitem="@layout/comments_list_item"
         >
 
