@@ -3,16 +3,31 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="2dp"
-    android:paddingLeft="3dp"
+    android:paddingTop="3dp"
+    android:paddingLeft="4dp"
+    android:paddingStart="4dp"
     android:paddingRight="3dp"
+    android:paddingEnd="3dp"
     android:background="@color/colorBackground"
     >
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/rank"
+        android:gravity="bottom"
+        android:layout_marginLeft="7dp"
+        android:layout_marginStart="7dp"
+        android:drawablePadding="3dp"
+        android:drawableLeft="@mipmap/rank_icon"
+        android:drawableStart="@mipmap/rank_icon"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/commentTitle"
         android:textStyle="bold"
+        android:visibility="gone"
         />
 
     <TextView
@@ -21,6 +36,7 @@
         android:id="@+id/commentText"
         android:layout_marginTop="6dp"
         android:paddingBottom="2dp"
+        android:textColor="@color/colorPrimaryText"
         android:foregroundGravity="right" />
 
 </LinearLayout>

@@ -58,13 +58,16 @@
             android:orientation="vertical">
 
             <include layout="@layout/shop_list"
-                android:id="@+id/shopListLabirint"
+                android:id="@+id/shopListBook24"
+                android:visibility="gone"
                 />
             <include layout="@layout/shop_list"
-                android:id="@+id/shopListBook24"
+                android:id="@+id/shopListLabirint"
+                android:visibility="gone"
                 />
             <include layout="@layout/shop_list"
                 android:id="@+id/shopListMyShop"
+                android:visibility="gone"
                 />
 
         </LinearLayout>
