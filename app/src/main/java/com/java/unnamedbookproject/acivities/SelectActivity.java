@@ -1,27 +1,24 @@
 package com.java.unnamedbookproject.acivities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.java.unnamedbookproject.R;
 import com.java.unnamedbookproject.adapters.SelectAdapter;
-import com.java.unnamedbookproject.adapters.ShopAdapter;
 import com.java.unnamedbookproject.listeners.ListItemListener;
 import com.java.unnamedbookproject.model.Book;
+import com.java.unnamedbookproject.utils.BookDatabase;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class SelectActivity extends AppCompatActivity implements ListItemListener{
 
     private RecyclerView recyclerView;
     private ArrayList<Book> bookList;
+    private SelectAdapter selectAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +28,8 @@ public class SelectActivity extends AppCompatActivity implements ListItemListene
         recyclerView = (RecyclerView) findViewById(R.id.select_rv);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
         bookList = (ArrayList<Book>) getIntent().getSerializableExtra(MainActivity.KEY_BOOK);
-        recyclerView.setAdapter(new SelectAdapter(bookList, this));
+        selectAdapter = new SelectAdapter(bookList, this);
+        recyclerView.setAdapter(selectAdapter);
     }
 
     @Override
@@ -43,6 +41,13 @@ public class SelectActivity extends AppCompatActivity implements ListItemListene
 
     @Override
     public void delete(Book book) {
-        Toast.makeText(this, "Удаление книги", Toast.LENGTH_SHORT).show();
+        BookDatabase.deleteBook(book);
+        selectAdapter.setList(BookDatabase.getAllBooks());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        selectAdapter.setList(BookDatabase.getAllBooks());
     }
 }

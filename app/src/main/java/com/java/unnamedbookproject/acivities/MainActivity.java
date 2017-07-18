@@ -3,15 +3,13 @@ package com.java.unnamedbookproject.acivities;
 import android.app.LoaderManager;
 import android.content.Intent;
 import android.content.Loader;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Environment;
 import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -26,19 +24,20 @@ import com.java.unnamedbookproject.R;
 import com.java.unnamedbookproject.adapters.ShopAdapter;
 import com.java.unnamedbookproject.listeners.ListItemListener;
 import com.java.unnamedbookproject.listeners.ShopLinkListener;
-import com.java.unnamedbookproject.loaders.Book24Loader;
 import com.java.unnamedbookproject.loaders.ImageLoader;
-import com.java.unnamedbookproject.loaders.LabirintLoader;
-import com.java.unnamedbookproject.loaders.MyShopLoader;
 import com.java.unnamedbookproject.loaders.ShopLoader;
 import com.java.unnamedbookproject.model.Book;
 import com.java.unnamedbookproject.model.Shop;
 import com.java.unnamedbookproject.parsers.ShopsParser;
+import com.java.unnamedbookproject.utils.BookDatabase;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import io.realm.Realm;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Shop>>,
         ListItemListener{
@@ -66,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Realm.init(getApplicationContext());
 
         initViews();
 
@@ -201,7 +202,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         progressBar.setVisibility(View.GONE);
 
-        books = (ArrayList<Book>) labirintBooks;
         labirintRecyclerView.setAdapter(new ShopAdapter(labirintBooks, this));
         book24RecyclerView.setAdapter(new ShopAdapter(book24Books, this));
         myShopRecyclerView.setAdapter(new ShopAdapter(myShopBooks, this));
@@ -223,7 +223,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         switch (id) {
             case R.id.action_select:
                 Intent intent = new Intent(this, SelectActivity.class);
-                intent.putExtra(KEY_BOOK, books);
+                intent.putExtra(KEY_BOOK, (Serializable) BookDatabase.getAllBooks());
                 startActivity(intent);
                 return true;
             default:

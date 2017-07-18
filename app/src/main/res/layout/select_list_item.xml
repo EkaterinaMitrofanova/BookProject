@@ -13,7 +13,7 @@
         android:id="@+id/deleteBook"
         android:layout_alignEnd="@id/select_bookView"
         android:layout_alignRight="@id/select_bookView"
-        android:background="@mipmap/ic_delete"
+        android:src="@mipmap/ic_delete"
         />
 
 </RelativeLayout>

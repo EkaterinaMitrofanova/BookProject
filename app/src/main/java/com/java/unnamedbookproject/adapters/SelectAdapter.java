@@ -60,6 +60,11 @@ public class SelectAdapter extends RecyclerView.Adapter<SelectAdapter.RecyclerVi
         });
     }
 
+    public void setList(List<Book> books){
+        this.books = books;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return books.size();
