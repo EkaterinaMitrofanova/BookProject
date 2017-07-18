@@ -5,4 +5,5 @@ import com.java.unnamedbookproject.model.Book;
 public interface ListItemListener {
 
     void onItemClick(Book book);
+    void delete(Book book);
 }

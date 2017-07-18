@@ -8,13 +8,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/colorBackground"
-    android:padding="8dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
     android:orientation="vertical"
     tools:context="com.java.unnamedbookproject.acivities.DetailActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:gravity="center_horizontal"
         android:paddingLeft="25dp"
         android:paddingStart="25dp"
@@ -27,28 +29,19 @@
             android:layout_height="85dp"
             android:id="@+id/detailBookCover"
             android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="25dp"
+            android:layout_marginStart="25dp"
             android:layout_marginRight="7dp"
             android:layout_marginEnd="7dp"
             android:layout_marginTop="10dp"/>
-
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:id="@+id/detailBookSelect"
-            android:layout_marginRight="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:background="@mipmap/ic_not_selected"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="100dp"
             android:orientation="vertical"
-            android:layout_toEndOf="@id/detailBookCover"
-            android:layout_toRightOf="@id/detailBookCover"
-            android:gravity="bottom">
+            android:gravity="bottom"
+            >
 
             <TextView
                 android:layout_width="match_parent"
@@ -70,8 +63,28 @@
                 android:textColor="@color/colorPrimary"
                 />
         </LinearLayout>
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:id="@+id/detailBookSelect"
+            android:layout_marginRight="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@mipmap/ic_not_selected"/>
 
-    </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/detailDescription"
+        android:background="@color/cardview_light_background"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="25dp"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
+        android:paddingLeft="25dp"
+        android:text="hrugihwegnlewgerh ehe heherh her herheahe rhe"/>
 
     <TextView
         android:layout_width="match_parent"
