@@ -41,6 +41,8 @@ public class LabirintParser {
                 book.setPrice(element.select("div.price").select("span").last().text() + " р.");
                 book.setLink(LABIRINT + element.select("a.cover").attr("href"));
                 book.setCover(element.select("img.book-img-cover").attr("data-src"));
+                book.setAuthor(element.getElementsByClass("product-author").first().getElementsByTag("a")
+                        .first().attr("title"));
                 books.add(book);
                 book.setComments(labirintCommentsParser.getComments(book.getId()));
                 count++;

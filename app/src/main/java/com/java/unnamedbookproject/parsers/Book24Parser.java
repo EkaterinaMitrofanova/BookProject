@@ -44,11 +44,18 @@ public class Book24Parser {
                     continue;
                 }
                 book = new Book();
-                book.setName(element.getElementsByClass("title gaGoToDetail").first().select("span").text());
-                book.setPrice(element.getElementsByClass("BPrice").first().select("span").last().text());
-                book.setLink(URL + element.getElementsByClass("whiteSectionItem").select("a").first().attr("href"));
-                book.setCover(element.getElementsByClass("whiteSectionItem").select("img").first().attr("src"));
-                book.setComments(new Book24CommentsParser().getComments(book.getLink()));
+                try {
+                    book.setName(element.getElementsByClass("title gaGoToDetail").first().select("span").text());
+                    book.setPrice(element.getElementsByClass("BPrice").first().select("span").last().text());
+                    book.setLink(URL + element.getElementsByClass("whiteSectionItem").select("a").first().attr("href"));
+                    book.setCover(element.getElementsByClass("whiteSectionItem").select("img").first().attr("src"));
+                    book.setAuthor(element.getElementsByClass("smallCardInfo").text());
+                    book.setComments(new Book24CommentsParser().getComments(book.getLink()));
+                } catch (NullPointerException e){
+                    count++;
+                    continue;
+                }
+
                 books.add(book);
                 count++;
                 System.out.println("Book24 Parser" + book.toString());

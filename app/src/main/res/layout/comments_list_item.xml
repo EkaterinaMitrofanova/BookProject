@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="2dp"
-    android:paddingTop="3dp"
+    android:layout_marginBottom="1dp"
+    android:paddingTop="8dp"
     android:paddingLeft="4dp"
     android:paddingStart="4dp"
     android:paddingRight="3dp"
-    android:paddingEnd="3dp"
-    android:background="@color/colorBackground"
+    android:paddingEnd="8dp"
+    android:background="@color/cardview_light_background"
     >
 
     <TextView
@@ -35,7 +35,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/commentText"
         android:layout_marginTop="6dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
         android:paddingBottom="2dp"
+        android:textSize="15sp"
         android:textColor="@color/colorPrimaryText"
         android:foregroundGravity="right" />
 

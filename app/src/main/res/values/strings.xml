@@ -7,4 +7,6 @@
     <string name="book24">Book24</string>
     <string name="myShop">MyShop</string>
     <string name="toShop">В магазин</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_select">Избранное</string>
 </resources>

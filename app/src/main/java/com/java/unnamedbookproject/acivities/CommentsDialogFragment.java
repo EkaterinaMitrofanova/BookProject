@@ -36,7 +36,6 @@ public class CommentsDialogFragment extends DialogFragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         if (book == null) {
             System.out.println("FRAGMENT: Book is null");
-            book = listener.fragmentViewCreated();
         } else {
             System.out.println("FRAGMENT: Book is not null");
         }

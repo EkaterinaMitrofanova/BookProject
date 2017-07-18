@@ -10,6 +10,7 @@ public class Book implements Serializable{
     private String name;
     private String link;
     private String price;
+    private String author;
     private List<Comment> comments = null;
 
     public Book() {
@@ -45,6 +46,14 @@ public class Book implements Serializable{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getLink() {

@@ -32,7 +32,6 @@ public class MyShopParser {
         try {
             doc = Jsoup.connect(path.toString()).get();
             Elements elements = doc.select("table[data-o$=listgeneral]");;
-            System.out.println("Size: " + elements.size());
             int count = 0;
             while (count != 6 && count != elements.size() -1 ){
                 Element element = elements.get(count);
@@ -46,6 +45,11 @@ public class MyShopParser {
                 price = price.replace("руб.", "р.");
                 book.setPrice(price);
                 book.setLink(URL + element.select("a").attr("href"));
+                Element author = element.getElementsByClass("lh1px").first().getElementsByClass("small1").
+                        first();
+                if (author != null){
+                    book.setAuthor(author.getElementsByTag("a").text());
+                }
                 book.setCover("http:" + element.select("a").first().select("img").attr("src"));
                 books.add(book);
                 count++;

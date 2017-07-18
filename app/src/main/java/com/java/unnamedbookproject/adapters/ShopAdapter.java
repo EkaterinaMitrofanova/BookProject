@@ -51,11 +51,8 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.RecyclerViewHo
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (book.getComments() == null || book.getComments().size() == 0){
-                    itemListener.noComments();
-                } else {
-                    itemListener.onItemClick(book);
-                }
+
+                itemListener.onItemClick(book);
             }
         });
     }

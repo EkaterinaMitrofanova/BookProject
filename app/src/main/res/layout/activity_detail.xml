@@ -1,15 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorBackground"
     android:padding="8dp"
     android:orientation="vertical"
     tools:context="com.java.unnamedbookproject.acivities.DetailActivity">
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="150dp"
-        android:id="@+id/detailBookCover"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingLeft="25dp"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
+        android:paddingRight="25dp"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="85dp"
+            android:id="@+id/detailBookCover"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="7dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:id="@+id/detailBookSelect"
+            android:layout_marginRight="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@mipmap/ic_not_selected"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="100dp"
+            android:orientation="vertical"
+            android:layout_toEndOf="@id/detailBookCover"
+            android:layout_toRightOf="@id/detailBookCover"
+            android:gravity="bottom">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/detailBookTitle"
+                android:textColor="@color/colorPrimaryText"
+                android:layout_marginBottom="5dp"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/detailBookAuthor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/detailBookPrice"
+                android:textColor="@color/colorPrimary"
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/detailBookComments"
+        android:text="@string/comments"
+        android:padding="5dp"
+        android:textSize="17sp"
+        android:gravity="center_horizontal"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/commentsRv"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary"
+        tools:listitem="@layout/comments_list_item"
+        />
 </LinearLayout>
+</ScrollView>

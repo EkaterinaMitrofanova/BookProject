@@ -45,6 +45,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="35dp"
+        android:id="@+id/photoBtn"
         android:background="@drawable/btn_search"
         android:text="Фото с камеры"/>
 
